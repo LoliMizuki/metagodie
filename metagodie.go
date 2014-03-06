@@ -12,7 +12,11 @@ import (
 )
 
 func main() {
-	targetDirectory := "/Users/inabamizuki/gocode/src/github.com/lolimizuki/metagodie/testcases"
+	if len(os.Args) < 2 {
+		fmt.Println("usage: metagodie <dir>")
+		return
+	}
+	targetDirectory := os.Args[1]
 	recursiveLookUpInDirectoryAndRemoveMeta(targetDirectory)
 }
 
